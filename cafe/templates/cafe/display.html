@@ -1,0 +1,627 @@
+
+{% load static %}
+<head>
+
+     <title>Eatery Cafe and Restaurant</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+ <link href="{% static 'cafe/css/bootstrap.min.css' %}" rel="stylesheet">
+ <link href="{% static 'cafe/css/font-awesome.min.css' %}" rel="stylesheet">
+ <link href="{% static 'cafe/css/animate.css' %}" rel="stylesheet">
+ <link href="{% static 'cafe/css/owl.carousel.css' %}" rel="stylesheet">
+ <link href="{% static 'cafe/css/owl.theme.default.min.css' %}" rel="stylesheet">
+ <link href="{% static 'cafe/css/magnific-popup.css' %}" rel="stylesheet">
+ <link href="{% static 'cafe/css/templatemo-style.css' %}" rel="stylesheet">
+ 
+ <link href="{% static 'cafe/css/demo.css' %}" rel="stylesheet">
+ 
+ 
+
+</head>
+{% block body %}
+<body>
+
+    <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-brand">Eatery <span>.</span> Cafe</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="#home" class="smoothScroll">Home</a></li>
+                         <li><a href="#about" class="smoothScroll">About</a></li>
+                         <li><a href="#team" class="smoothScroll">Chef</a></li>
+                         <li><a href="#menu" class="smoothScroll">Menu</a></li>
+                         <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                           {% if user.is_authenticated %}
+                         <li><a href="{% url 'display' %}" class="smoothScroll">reserve a table</a></li>
+                        {% endif %}
+                    </ul>
+
+                    <li class="nav navbar-nav navbar-right">
+                            {% if user.is_authenticated %}
+                              <a class="nav-link" href="#"><strong>{{ user.username }}</strong></a>
+                              <a class="section-btn" href="{% url 'logout' %}">Log Out</a>
+                            {% else %}
+                              <a href="tel:010 020 0340"  id="callnum">Call Now! <i class="fa fa-phone"></i> 010 020 0340</a>
+                              <a href="#about" id="loginbtn"class="section-btn" onclick="openForm()">Login</a>
+                    </li>
+                    <div id="myForm">
+<div id="ds" onclick="closeForm()">
+     <p id="cross">&times</p></div>
+    <div class="formbox" id="formbox">
+        <div class="form-formbox sign-up-formbox">
+            
+            <form action="{% url 'register' %}" method="post"class="formsign">
+               {% csrf_token %}
+                <h1>Create Account</h1>
+
+                <input class="btn" type="text" name="username" placeholder="Name" />
+                <input class="btn" type="email" name="email" placeholder="Email" />
+                <input class="btn" type="password" name="password" placeholder="Password"/>
+                <input class="btn" type="password" name="confirmation" placeholder="Confirm Password"/>
+                <p></p>
+                <button class="formbtn">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-formbox sign-in-formbox">
+            <form action="{% url 'login' %}" method="post"class="formsign">
+              {% csrf_token %}
+                <h1>Sign in</h1>
+
+                <input class="btn" type="text"  name="username" placeholder="Name" />
+                <input class="btn" type="password" name="password" placeholder="Password" />
+                <p></p>
+                <button class="formbtn">Sign In</button>
+            </form>
+        </div>
+        <div class="formoverlay-formbox">
+            <div class="formoverlay">
+                 <div class="formoverlay-panel formoverlay-right">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+                <div class="formoverlay-panel formoverlay-left">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+               </div>
+
+{% endif %}   
+          </div>
+     </section>
+
+
+     <!-- HOME -->
+     <section id="home" class="slider" data-stellar-background-ratio="0.5">
+          <div class="row">
+
+                    <div class="owl-carousel owl-theme">
+                         <div class="item item-first">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>Eatery Cafe &amp; Restaurant</h3>
+                                             <h1>Our mission is to provide an unforgettable experience</h1>
+                                             <a href="#team" class="section-btn btn btn-default smoothScroll">Meet our chef</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-second">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>Your Perfect Breakfast</h3>
+                                             <h1>The best dinning quality can be here too!</h1>
+                                             <a href="#menu" class="section-btn btn btn-default smoothScroll">Discover menu</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-third">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>New Restaurant in Town</h3>
+                                             <h1>Ejoy our special menus every Sunday and Friday</h1>
+                                             <a href="#contact" class="section-btn btn btn-default smoothScroll">reserve a table Online</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    
+
+          </div>
+
+     </section>
+
+
+     <!-- ABOUT -->
+
+     <section id="about" data-stellar-background-ratio="0.5">
+     
+     {% if message %}    
+              <script>
+                 alert('{{ message }}');
+              </script>
+     {% endif %}
+ 
+               <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-12">
+                         <div class="about-info">
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                                   <h4>Read our story</h4>
+                                   <h2>We've been Making The Delicious Foods Since 1999</h2>
+                              </div>
+
+                              <div class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>Hershey's oldest freestanding restaurant. A local favorite for 83+ years. Featuring our famous DeAngelis spaghetti sauces and our famous Upside Down pizza. Homemade, delicious Italian dishes, featuring seafood, steaks, and pasta. Full pub menu and sandwich selection. </p>
+                                   <p>Full menu offered all day and late night. Full bar with entertainment on weekends. Home to the stars, cast parties and celebrities from the Hershey Theatre. Conveniently located on Chocolate Avenue, directly across from the Hershey Story Museum. <a href="#" target="_parent">Mauritius</a>. Enjoy.</p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                         <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                              <img src="static/cafe/images/about-image.jpg" class="img-responsive" alt="">
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+
+     <!-- TEAM -->
+     <section id="team" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                              <h2>Meet our chefs</h2>
+                              <h4>They are nice &amp; friendly</h4>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                              <img src="static/cafe/images/team-image1.jpg" class="img-responsive" alt="">
+                                   <div class="team-hover">
+                                        <div class="team-item">
+                                             <h4>Internationally renowned, multi-Michelin starred chef </h4> 
+                                             <ul class="social-icon">
+                                                  <li><a href="#" class="fa fa-linkedin-square"></a></li>
+                                                  <li><a href="#" class="fa fa-envelope-o"></a></li>
+                                             </ul>
+                                        </div>
+                                   </div>
+                         </div>
+                         <div class="team-info">
+                              <h3>Catherine Vanensen </h3>
+                              <p>Kitchen Officer</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
+                              <img src="static/cafe/images/team-image2.jpg" class="img-responsive" alt="">
+                                   <div class="team-hover">
+                                        <div class="team-item">
+                                             <h4>Internationally renowned, multi-Michelin starred chef </h4>
+                                             <ul class="social-icon">
+                                                  <li><a href="#" class="fa fa-instagram"></a></li>
+                                                  <li><a href="#" class="fa fa-flickr"></a></li>
+                                             </ul>
+                                        </div>
+                                   </div>
+                         </div>
+                         <div class="team-info">
+                              <h3>Lindsay Ramsay</h3>
+                              <p>Owner &amp; Manager</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
+                              <img src="static/cafe/images/team-image3.jpg" class="img-responsive" alt="">
+                                   <div class="team-hover">
+                                        <div class="team-item">
+                                             <h4>Internationally renowned, multi-Michelin starred chef </h4>
+                                             <ul class="social-icon">
+                                                  <li><a href="#" class="fa fa-instagram"></a></li>
+                                                  <li><a href="#" class="fa fa-google"></a></li>
+                                             </ul>
+                                        </div>
+                                   </div>
+                         </div>
+                         <div class="team-info">
+                              <h3>Isabella Martino</h3>
+                              <p>Pizza Specialist</p>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+
+     <!-- MENU-->
+     <section id="menu" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                              <h2>Our Menus</h2>
+                              <h4>Tea Time &amp; Dining</h4>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="static/cafe/images/menu-image1.jpg" class="image-popup" title="American Breakfast">
+                                   <img src="static/cafe/images/menu-image1.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>American Breakfast</h3>
+                                             <p>Tomato / Eggs / Sausage</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$25</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="static/cafe/images/menu-image2.jpg" class="image-popup" title="Self-made Salad">
+                                   <img src="static/cafe/images/menu-image2.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Self-made Salad</h3>
+                                             <p>Green / Fruits / Healthy</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$18</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="static/cafe/images/menu-image3.jpg" class="image-popup" title="Chinese Noodle">
+                                   <img src="static/cafe/images/menu-image3.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Chinese Noodle</h3>
+                                             <p>Pepper / Chicken / Vegetables</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$34</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="static/cafe/images/menu-image4.jpg" class="image-popup" title="Rice Soup">
+                                   <img src="static/cafe/images/menu-image4.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Rice Soup</h3>
+                                             <p>Green / Chicken</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$28</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="static/cafe/images/menu-image5.jpg" class="image-popup" title="Project title">
+                                   <img src="static/cafe/images/menu-image5.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Deli Burger</h3>
+                                             <p>Beef / Fried Potatoes</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$46</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="static/cafe/images/menu-image6.jpg" class="image-popup" title="Project title">
+                                   <img src="static/cafe/images/menu-image6.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Big Flat Fried</h3>
+                                             <p>Pepper / Crispy</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$30</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- TESTIMONIAL -->
+     <section id="testimonial" data-stellar-background-ratio="0.5">
+          <div class="overlay"></div>
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                              <h2>Reviews</h2>
+                         </div>
+                    </div>  
+
+                    <div class="col-md-offset-2 col-md-8 col-sm-12">
+                         <div class="owl-carousel owl-theme">
+                              <div class="item">
+                                   <p>This is my go-to place for eat.Reserving online is very easy and quick.</p>
+                                        <div class="tst-author">
+                                             <h4>Douglas Carleson</h4>
+                                             <span>24/05/2021</span>
+                                        </div>
+                              </div>
+
+                              <div class="item">
+                                   <p>This place has always been amazing, but the Online Reservation System that is going on currently, is even more outstanding!</p>
+                                        <div class="tst-author">
+                                             <h4>Martin Stephen</h4>
+                                             <span>18/06/2021</span>
+                                        </div>
+                              </div>
+
+                              <div class="item">
+                                   <p>If you need a place to stay in Monterey then this hotel is the place for you. Reserving online helped to avoid big queues and waiting in the hall</p>
+                                        <div class="tst-author">
+                                             <h4>Jessie Mount</h4>
+                                             <span>24/12/2021</span>
+                                        </div>
+                              </div>
+
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>  
+
+
+     <!-- CONTACT -->
+     <section id="contact" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+	<!-- How to change your own map point
+            1. Go to Google Maps
+            2. Click on your location point
+            3. Click "Share" and choose "Embed map" tab
+            4. Copy only URL and paste it within the src="" field below
+	-->
+                    <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.4s">
+                         <div id="google-map">
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" allowfullscreen></iframe>
+                         </div>
+                    </div>    
+
+                    
+
+   
+{% if user.is_authenticated %}
+<div class="col-md-6 col-sm-12">
+
+                         <div class="col-md-12 col-sm-12">
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                                    <video width="600" height="350" autoplay muted loop >
+                               <source src="static\cafe\images\vid.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                              </video>
+                              </div>
+                         </div>
+                         
+                                  {% else %}
+     <div class="col-md-6 col-sm-12">
+
+                        <div class="col-md-12 col-sm-12">
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                                    <video width="600" height="350" autoplay muted loop >
+                               <source src="static\cafe\images\vid.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                              </video>
+                              </div>
+                             <p> Login to reserve a table</p>
+                         </div>
+                         
+
+{% endif %}   
+
+                         </div>
+                    </div>
+
+     </section>          
+
+
+     <!-- FOOTER -->
+     <footer id="footer" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-3 col-sm-8">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Find us</h2>
+                              </div>
+                              <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>Chocolate Avenue, directly across from the Hershey Story Museum<br>Monterey<br>Mauritius</p>
+                              </address>
+                         </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-8">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Reserve a table </h2>
+                              </div>
+                              <address class="wow fadeInUp" data-wow-delay="0.4s">
+                              <span>
+                                   <a href="tel:090-080-0650">090-080-0650</a> |
+                                   <a href="tel:090-070-0430">090-070-0430</a> 
+                              <span>     
+                                   <p><a href="mailto:eatery247@company.com">eatery247@company.com</a></p>
+                                   <p>LINE: eatery247 </p>
+                              </address>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-8">
+                         <div class="footer-info footer-open-hour">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Open Hours</h2>
+                              </div>
+                              <div class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>Monday: Closed</p>
+                                   <div>
+                                        <strong>Tuesday to Friday</strong>
+                                        <p>7:00 AM - 9:00 PM</p>
+                                   </div>
+                                   <div>
+                                        <strong>Saturday - Sunday</strong>
+                                        <p>11:00 AM - 10:00 PM</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4">
+                         <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+                              <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                              <li><a href="#" class="fa fa-twitter"></a></li>
+                              <li><a href="https://www.instagram.com/mdiv10/?hl=en" class="fa fa-instagram"></a></li>
+                              <li><a href="#" class="fa fa-google"></a></li>
+                         </ul>
+
+                         <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s"> 
+                              <p><br>Copyright &copy; 2021 <br> Eatery.Cafe
+                              
+                              <br><br>Design: <a rel="nofollow" href="#" target="_parent">Divesh</a></p>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+</body>
+{% endblock %}
+{% block script %}
+   <script  type="module" src="{% static  'cafe/js/jquery.js' %}"></script>
+   <script  type="module"  src="{% static 'cafe/js/bootstrap.min.js' %}"></script>
+   <script  type="module"  src="{% static 'cafe/js/jquery.stellar.min.js' %}"></script>
+   <script  type="module"  src="{% static 'cafe/js/wow.min.js' %}"></script>
+   <script  type="module"  src="{% static 'cafe/js/owl.carousel.min.js' %}"></script>
+   <script  type="module"  src="{% static 'cafe/js/jquery.magnific-popup.min.js' %}"></script>
+   <script  type="module"  src="{% static 'cafe/js/smoothscroll.js' %}"></script>
+   <script  type="module"  src="{% static 'cafe/js/custom.js' %}"></script>
+   <script  type="module"  src="{% static 'cafe/main.js' %}"></script>
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  document.getElementById("loginbtn").style.display = "none";
+    document.getElementById("callnum").style.display = "none";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const formbox = document.getElementById('formbox');
+
+    signUpButton.addEventListener('click', () => {
+        formbox.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        formbox.classList.remove("right-panel-active");
+    });
+</script>
+
+
+{% endblock %}

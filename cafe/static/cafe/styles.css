@@ -1,0 +1,116 @@
+#post-form-div {
+    padding: 10px 20px 10px 20px;
+}
+
+#post-view {
+    margin: 5px;
+}
+
+.post {
+    background-repeat: no-repeat;
+    background-size: 20% 47%;
+    background-image: url('https://p4.wallpaperbetter.com/wallpaper/355/1014/347/spoons-fork-plates-wallpaper-preview.jpg');
+    margin: 4px 2px 4px 30px;
+    width: 90%;
+    align-items: center;
+    border: 1px solid black;
+}
+
+#named {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    color: rgba(0, 0, 0, 0.589);
+}
+
+#emailed {
+    font-family: 'Bebas Neue', cursive;
+    color: rgba(0, 0, 0, 0.589);
+}
+
+#menud {
+    font-family: 'Bebas Neue', cursive;
+    color: rgba(109, 55, 48, 0.589);
+}
+
+#addressd {
+    font-family: 'Bebas Neue', cursive;
+    color: rgba(109, 55, 48, 0.589);
+}
+
+#customised {
+    font-family: 'Bebas Neue', cursive;
+    color: rgba(92, 53, 48, 0.589);
+}
+
+@media only screen and (max-width: 600px) {
+    .post {
+        background-repeat: no-repeat;
+        background-size: 13% 10%;
+        background-position: 100% 100%;
+        background-image: url('https://p4.wallpaperbetter.com/wallpaper/355/1014/347/spoons-fork-plates-wallpaper-preview.jpg');
+        margin: 4px 2px 4px 30px;
+        width: 90%;
+        align-items: center;
+        border: 1px solid black;
+    }
+}
+
+.link {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#profile-stats-list {
+    overflow: hidden;
+    list-style-type: none;
+    padding: 8px 0px 8px 0px;
+    align-content: center;
+    text-align: center;
+    font-size: 1.5em;
+    color: rgb(255, 121, 87);
+}
+
+#profile-stats-list:hover {
+    color: rgb(143, 25, 31);
+}
+
+#profile-stats-list>li>#profile-div-title {
+    padding: 0px 16px 0px 0px
+}
+
+#profile-stats-list>li {
+    text-decoration: none;
+    padding: 2px 10px 2px 0px;
+}
+
+.counter-txt {
+    margin-left: 10px;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#img1 {
+    width: -20%;
+}
+
+#img1:hover {
+    filter: grayscale(50%);
+    filter: brightness(120%);
+}
+
+.btn-outline-light:hover {
+    color: #352d28;
+    border-color: #9ce4ee;
+    background-color: transparent;
+}
+
+.text-muted {
+    color: #7c472fa1!important;
+}
